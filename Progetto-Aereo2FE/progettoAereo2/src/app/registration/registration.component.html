@@ -1,0 +1,22 @@
+<div>
+    <form>
+        <div>
+            <label>Nome</label>
+            <input type="text" [(ngModel)]="userRegistration.nome" name="email">
+        </div>
+        <div >
+            <label>Cognome</label>
+            <input type="text" [(ngModel)]="userRegistration.cognome" name="email">
+        </div>
+        <div>
+            <label >Username</label>
+            <input type="text" [(ngModel)]="userRegistration.email" name="email" >
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" [(ngModel)]="userRegistration.password" name="password">
+        </div>
+        <button type="button" (click)="registration()">Register</button>
+    </form>
+   
+</div>
