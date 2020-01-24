@@ -1,0 +1,31 @@
+import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
+import { Router } from '@angular/router'
+
+
+@Component({
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
+})
+export class RegistrationComponent implements OnInit {
+
+  userRegistration ={}
+  constructor(private _auth: ServiceService,
+              private _router: Router) { }
+
+  ngOnInit() {
+   
+  }
+
+  registration() {
+    this._auth.registration(this.userRegistration)
+    .subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.log(err)
+    )      
+  }
+
+}
