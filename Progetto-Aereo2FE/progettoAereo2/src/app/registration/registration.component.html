@@ -1,22 +1,26 @@
-<div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <h1>Registrazione</h1> 
+    </div>
+
     <form>
-        <div>
-            <label>Nome</label>
-            <input type="text" [(ngModel)]="userRegistration.nome" name="nome">
-        </div>
-        <div >
-            <label>Cognome</label>
-            <input type="text" [(ngModel)]="userRegistration.cognome" name="cognome">
-        </div>
-        <div>
-            <label >Username</label>
-            <input type="text" [(ngModel)]="userRegistration.email" name="email" >
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" [(ngModel)]="userRegistration.password" name="password">
-        </div>
-        <button type="button" (click)="registration()">Register</button>
+            <div>
+                <input type="text" id="nome"[(ngModel)]="userRegistration.nome" name="nome"class="fadeIn second" placeholder="Nome" required="required">
+                <input type="text" [(ngModel)]="userRegistration.cognome" name="cognome" class="fadeIn second" placeholder="Cognome" required="required">
+                <input type="text" [(ngModel)]="userRegistration.email" name="email"  class="fadeIn second" placeholder="Email" required="required">
+                <input type="password" [(ngModel)]="userRegistration.password" name="password" class="fadeIn second" placeholder="Password" required="required">
+            </div>
+            <div>
+                <button class="fadeIn second" (click)="registration()">Registrazione</button>
+            </div>
     </form>
-   
+
+  </div>
 </div>
