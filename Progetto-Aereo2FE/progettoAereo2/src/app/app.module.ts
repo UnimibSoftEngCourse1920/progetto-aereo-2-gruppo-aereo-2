@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationService } from './reservation.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServiceService],
+  providers: [ServiceService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

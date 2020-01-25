@@ -14,4 +14,5 @@ export class ServiceService {
     console.log(user)
     return this.http.get<any>(this._registrationAPI, user) //post call
   }
+
 }
