@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router'
+import { ModalComponent } from '../modal/modal.component'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,19 +13,34 @@ import { Router } from '@angular/router'
 export class RegistrationComponent implements OnInit {
 
   userRegistration ={}
-  constructor(private _auth: ServiceService,
-              private _router: Router) { }
+  constructor(private _service: ServiceService,
+              private _router: Router,
+              private matDialog: MatDialog,
+              ) { }
 
   ngOnInit() {
    
   }
 
+  openModal(message) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    this.matDialog.open(ModalComponent, dialogConfig);
+  }
+
   registration() {
-    this._auth.registration(this.userRegistration)
+    this._service.registration(this.userRegistration)
     .subscribe(
       res => {
         console.log(res)
+        this.openModal("registrazione avvenuta")
        // localStorage.setItem('token',res.token)
+       this._router.navigate(['/login'])
+
       },
       err => console.log(err)
     )      

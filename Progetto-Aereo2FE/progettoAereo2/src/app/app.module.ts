@@ -9,6 +9,11 @@ import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationService } from './reservation.service';
+import { LoginComponent } from './login/login.component';
+import { ModalComponent } from './modal/modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -16,15 +21,22 @@ import { ReservationService } from './reservation.service';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    ReservationComponent
-  ],
+    ReservationComponent,
+    LoginComponent,
+    ModalComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [ServiceService, ReservationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
+
 })
 export class AppModule { }

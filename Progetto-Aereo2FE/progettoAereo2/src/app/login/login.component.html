@@ -1,0 +1,24 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <h1>Login</h1> 
+    </div>
+
+    <form>
+            <div>
+                <input type="text" [(ngModel)]="userLogin.email" name="email"  class="fadeIn second" placeholder="Email" required="required">
+                <input type="password" [(ngModel)]="userLogin.password" name="password" class="fadeIn second" placeholder="Password" required="required">
+            </div>
+            <div>
+                <button class="fadeIn second" (click)="login()">Login</button>
+            </div>
+    </form>
+
+  </div>
+</div>

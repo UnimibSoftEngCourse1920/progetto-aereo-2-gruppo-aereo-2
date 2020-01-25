@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 export class ServiceService {
 
   private _registrationAPI = "/assets/utente.json";
+  private _loginAPI = "/assets/utente.json";
 
   constructor(private _router: Router,
     private http: HttpClient) { }
@@ -13,6 +14,13 @@ export class ServiceService {
   registration(user) {
     console.log(user)
     return this.http.get<any>(this._registrationAPI, user) //post call
+  }
+
+
+
+  login(user) {
+    console.log(user)
+    return this.http.get<any>(this._loginAPI, user) //post call
   }
 
 }
