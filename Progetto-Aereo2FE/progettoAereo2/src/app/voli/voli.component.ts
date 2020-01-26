@@ -12,11 +12,14 @@ export class VoliComponent implements OnInit {
   constructor(private voloService: VoliService) { }
 
   ngOnInit() {
-    this.voloService.getVoli()
-      .subscribe(
-        res => this.voli=res,
-        err => console.log(err)
-      )
+    
   }
+  ricerca(voloFiltro = {}){
+    this.voloService.getVoli()
+    .subscribe(
+      res => this.voli=res,
+      err => console.log(err)
+    )
 
+  }
 }

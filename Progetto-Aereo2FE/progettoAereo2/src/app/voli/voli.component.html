@@ -61,9 +61,9 @@
 </form>
 
 <h2 type="text">Prenotazioni Disponibili</h2>
-<ul *ngFor="let volo of voli" ngIf="conditon()">
-    <li>{{volo.dataPartenza}}</li>
-    <li>{{volo.aeroportoP}}</li>
+<ul *ngFor="let volo of voli">
+    <h2>{{volo.dataPartenza}}</h2>
+    <h2>{{volo.aeroportoP}}</h2>
 </ul>
 
 
