@@ -36,9 +36,7 @@ export class RegistrationComponent implements OnInit {
     this._service.registration(this.userRegistration)
     .subscribe(
       res => {
-        console.log(res)
         this.openModal("registrazione avvenuta")
-        localStorage.setItem('token',res.token)
         this._router.navigate(['/login'])
 
       },

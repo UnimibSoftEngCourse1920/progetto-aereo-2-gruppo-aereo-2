@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     this._service.login(this.userLogin)
     .subscribe(
       res => {
-        //localStorage.setItem('token', res.token)
-        this._router.navigate(['/reservation'])
+        localStorage.setItem('jwt', res.jwt)
+        this._router.navigate(['/voli'])
       },
       err => console.log(err)
     ) 

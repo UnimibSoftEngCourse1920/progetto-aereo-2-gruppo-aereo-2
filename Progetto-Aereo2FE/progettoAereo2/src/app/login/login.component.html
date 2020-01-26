@@ -12,8 +12,8 @@
 
     <form>
             <div>
-                <input type="text" [(ngModel)]="userLogin.email" name="email"  class="fadeIn second" placeholder="Email" required="required">
-                <input type="password" [(ngModel)]="userLogin.password" name="password" class="fadeIn second" placeholder="Password" required="required">
+                <input type="text" [(ngModel)]="userLogin.username" name="username"  class="fadeIn second" placeholder="Email" required>
+                <input type="password" [(ngModel)]="userLogin.password" name="password" class="fadeIn second" placeholder="Password" required>
             </div>
             <div>
                 <button mat-raised-button class="fadeIn second" (click)="login()">Login</button>
