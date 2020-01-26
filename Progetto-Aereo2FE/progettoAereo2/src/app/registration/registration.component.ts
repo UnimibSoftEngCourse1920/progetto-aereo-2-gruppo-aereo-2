@@ -38,8 +38,8 @@ export class RegistrationComponent implements OnInit {
       res => {
         console.log(res)
         this.openModal("registrazione avvenuta")
-       // localStorage.setItem('token',res.token)
-       this._router.navigate(['/login'])
+        localStorage.setItem('token',res.token)
+        this._router.navigate(['/login'])
 
       },
       err => console.log(err)

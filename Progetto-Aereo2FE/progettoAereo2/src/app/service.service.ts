@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class ServiceService {
 
-  private _registrationAPI = "/assets/utente.json";
+  private _registrationAPI = "localhost:8080/register";
   private _loginAPI = "/assets/utente.json";
 
   constructor(private _router: Router,
@@ -13,7 +13,7 @@ export class ServiceService {
 
   registration(user) {
     console.log(user)
-    return this.http.get<any>(this._registrationAPI, user) //post call
+    return this.http.post<any>(this._registrationAPI, user) //post call
   }
 
 
