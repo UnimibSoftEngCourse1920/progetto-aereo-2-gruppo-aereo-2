@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './registration/registration.component'
-import { ReservationComponent } from './reservation/reservation.component' 
+import { VoliComponent } from './voli/voli.component' 
 import { LoginComponent } from './login/login.component' 
 import { ModalComponent } from './modal/modal.component'
 
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: RegistrationComponent
   },
   {
-    path: 'reservation',
-    component: ReservationComponent
+    path: 'voli',
+    component: VoliComponent
   },
   {
     path: 'modal',

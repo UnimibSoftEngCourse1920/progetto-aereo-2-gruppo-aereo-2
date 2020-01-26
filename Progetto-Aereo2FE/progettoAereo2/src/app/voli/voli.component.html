@@ -1,0 +1,70 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<form>
+    <div>
+        <form>
+            <div>
+                <div>
+                    <div>
+                        <span>Partenza</span>
+                        <input type="text" id="partenza"[(ngModel)]="voloFiltro.partenza" name="partenza" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+                <div>
+                    <div >
+                        <span>Arrivo</span>
+                        <input type="text" id="arrivo"[(ngModel)]="voloFiltro.arrivo" name="arrivo" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+            </div>
+            <div >
+                <div >
+                    <div>
+                        <span>Data Partenza</span>
+                        <input  type="date" id="dataPartenza"[(ngModel)]="voloFiltro.dataPartenza" name="dataPartenza" [ngModelOptions]="{standalone: true}" required>
+                    </div>
+                </div>
+                <div >
+                    <div >
+                        <span>Data Arrivo</span>
+                        <input  type="date" id="dataArrivo"[(ngModel)]="voloFiltro.dataArrivo" [ngModelOptions]="{standalone: true}" name="dataArrivo" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span>Numero Persone</span>
+                        <input type="number" id="numPers"[(ngModel)]="voloFiltro.numPers" name="numPers" [ngModelOptions]="{standalone: true}" required>
+                        <span ></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div >
+                    <div >
+                        <span>Classe</span>
+                        <select [(ngModel)]=voloFiltro.classe [ngModelOptions]="{standalone: true}">
+                            <option>Economy</option>
+                            <option>Business</option>
+                            <option>First</option>
+                        </select>
+                        <span ></span>
+                    </div>
+                </div>
+                <div >
+                    <div >
+                        <button   >Ricerca</button>
+                    </div>
+                </div>
+            </div>
+        </form>    
+    </div>
+</form>
+
+<h2 type="text">Prenotazioni Disponibili</h2>
+<ul *ngFor="let volo of voli" ngIf="conditon()">
+    <li>{{volo.dataPartenza}}</li>
+    <li>{{volo.aeroportoP}}</li>
+</ul>
+
+
+    

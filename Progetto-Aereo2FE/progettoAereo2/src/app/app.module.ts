@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ServiceService } from './service.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ReservationService } from './reservation.service';
+import { VoliComponent } from './voli/voli.component';
+import { VoliService } from './voli.service';
 import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    ReservationComponent,
+    VoliComponent,
     LoginComponent,
     ModalComponent
     ],
@@ -34,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [ServiceService, ReservationService],
+  providers: [ServiceService, VoliService],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 
