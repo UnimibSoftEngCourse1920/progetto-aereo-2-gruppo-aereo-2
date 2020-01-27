@@ -37,7 +37,7 @@ public class DbInitializer implements CommandLineRunner {
 		
 		Date data = new Date();
 		
-		Cliente cliente1 = new Cliente("Oleg","Stoianov","oleg.stoianov@babbo.it","oleghinho",bcryptoEncoder.encode("1234"));
+		Cliente cliente1 = new Cliente("Oleg","Stoianov","oleg.stoianov@babbo.it","oleghinho",bcryptoEncoder.encode("123456"));
 		Cliente cliente2 = new Cliente("Lorenzo","Nosotti","lollo.noso@babbo.it","lollonoso",bcryptoEncoder.encode("4321"));
 		
 		Volo volo1 = new Volo("AFG8D",data,"Milano","Roma", 100);

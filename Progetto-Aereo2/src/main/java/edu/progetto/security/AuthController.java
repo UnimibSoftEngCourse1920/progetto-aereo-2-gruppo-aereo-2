@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.progetto.cliente.Cliente;
 
-@CrossOrigin()
+@CrossOrigin(origins = "*")	
 @RestController
 public class AuthController {
 

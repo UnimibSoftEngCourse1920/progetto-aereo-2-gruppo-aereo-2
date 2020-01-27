@@ -6,12 +6,12 @@ export class tokenJWTService implements HttpInterceptor {
 
   constructor(private injector: Injector){}
   intercept(req, next) {
+    let tokenizedReq = req;
     let service = this.injector.get(ServiceService)
-    let tokenizedReq = req.clone(
-      {
-        headers: req.headers.set('Authorization', 'Bearer ' + service.getToken())
-      }
-    )
+    const token = service.getToken();
+    if (token != null) {
+      tokenizedReq = req.clone({headers: req.headers.set("Authorization", 'Bearer ' + token)});    
+    }
     console.log(req.headers.getToken)
     return next.handle(tokenizedReq)
   }
