@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Router } from '@angular/router';
 import { IVolo } from "./interface/IVolo";
 import { Observable } from 'rxjs';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class VoliService {
   
-  private _voliAPI = "./../assets/reservations.json";
+  private _voliAPI = "http://localhost:8080/voli";
 
-  constructor(private _router: Router, 
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getVoli(): Observable<IVolo[]>{
-    return this.http.get<IVolo[]>(this._voliAPI) 
+  getVoli(){
+    return this.http.get<any>(this._voliAPI)
   }
 
 }

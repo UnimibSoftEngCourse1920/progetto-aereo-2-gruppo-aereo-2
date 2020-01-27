@@ -1,6 +1,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-<form>
+<!-- <form>
     <div>
         <form>
             <div>
@@ -58,12 +58,12 @@
             </div>
         </form>    
     </div>
-</form>
+</form> -->
 
 <h2 type="text">Prenotazioni Disponibili</h2>
 <ul *ngFor="let volo of voli">
-    <h2>{{volo.dataPartenza}}</h2>
-    <h2>{{volo.aeroportoP}}</h2>
+    <li>{{volo.dataPartenza}}</li>
+    <li>{{volo.aeroportoP}}</li>
 </ul>
 
 

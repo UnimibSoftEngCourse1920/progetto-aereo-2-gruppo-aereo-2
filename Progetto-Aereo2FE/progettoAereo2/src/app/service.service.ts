@@ -12,10 +12,12 @@ export class ServiceService {
     private http: HttpClient) { }
 
   registration(user) {
+    console.log(user)
     return this.http.post<any>(this._registrationAPI, user) //post call
   }
 
   login(user) {
+    console.log(user)
     return this.http.post<any>(this._loginAPI, user)
   }
 
@@ -25,7 +27,7 @@ export class ServiceService {
   }
 
   getToken() {
-    return localStorage.getItem('jwt')
+;    return localStorage.getItem('jwt')
   }
 
   loggedIn() {

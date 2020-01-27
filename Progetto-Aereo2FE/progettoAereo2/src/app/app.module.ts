@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ServiceService } from './service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { VoliComponent } from './voli/voli.component';
 import { VoliService } from './voli.service';
 import { LoginComponent } from './login/login.component';
@@ -14,7 +14,9 @@ import { ModalComponent } from './modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { tokenJWTService } from './token-jwt.service';
+import { GuardiaGuard } from './guardia.guard'
+ 
 
 
 @NgModule({
@@ -34,9 +36,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [ServiceService, VoliService],
+  providers: [ServiceService, VoliService, GuardiaGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: tokenJWTService,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 
 })
 export class AppModule { }
+
