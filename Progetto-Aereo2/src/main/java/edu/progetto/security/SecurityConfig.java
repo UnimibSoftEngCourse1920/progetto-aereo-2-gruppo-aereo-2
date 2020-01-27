@@ -14,44 +14,39 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-
-	@Autowired
-	private CustomUserDetailsService customUserDetailService;
+	
 	
 	@Autowired
-	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-	
+	private CustomUserDetailsService myUserDetailsService;
 	@Autowired
 	private RequestFilter jwtRequestFilter;
-	
-	
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserDetailService).passwordEncoder(bCryptPasswordEncoder());
-    }
-	
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myUserDetailsService);
+	}
+
 	@Bean
 	public PasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	 
+
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()
 				.authorizeRequests().antMatchers("/authenticate", "/register").permitAll().
-				anyRequest().authenticated().and().
-				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+						anyRequest().authenticated().and().
+						exceptionHandling().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-		// Add a filter to validate the tokens with every request
+		httpSecurity.cors();
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-	}
 
+	}
 }

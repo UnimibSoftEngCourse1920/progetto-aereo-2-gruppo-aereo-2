@@ -1,6 +1,7 @@
-Sun Jan 26 12:52:44 CET 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016f-e1b2-68b3-000004d80f78 
-on database directory memory:C:\Users\Utente\Desktop\progAereo2\progetto-aereo-2-gruppo-aereo-2\Progetto-Aereo2\df6d8831-58c2-46fb-bd84-1e7f45ffece1 with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Sun Jan 26 15:13:40 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016f-e233-6cc0-000003f0eff8 
+on database directory memory:C:\Users\Utente\Desktop\progAereo2\progetto-aereo-2-gruppo-aereo-2\Progetto-Aereo2\11dddaa3-13b3-448b-a6ac-e2c1aefa8907 with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
 Loaded from file:/C:/Users/Utente/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_231-b11
