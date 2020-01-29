@@ -1,19 +1,17 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-<!-- <form>
-    <div>
-        <form>
+    <div><form>
             <div>
                 <div>
                     <div>
                         <span>Partenza</span>
-                        <input type="text" id="partenza"[(ngModel)]="voloFiltro.partenza" name="partenza" [ngModelOptions]="{standalone: true}">
+                        <input type="text" [(ngModel)]="filtroVolo.partenza"name="filtroVolo.partenza"/>
                     </div>
                 </div>
                 <div>
                     <div >
                         <span>Arrivo</span>
-                        <input type="text" id="arrivo"[(ngModel)]="voloFiltro.arrivo" name="arrivo" [ngModelOptions]="{standalone: true}">
+                        <input type="text" [(ngModel)]="filtroVolo.arrivo" name="filtroVolo.arrivo"/>
                     </div>
                 </div>
             </div>
@@ -21,19 +19,19 @@
                 <div >
                     <div>
                         <span>Data Partenza</span>
-                        <input  type="date" id="dataPartenza"[(ngModel)]="voloFiltro.dataPartenza" name="dataPartenza" [ngModelOptions]="{standalone: true}" required>
+                        <input  type="date" [(ngModel)]="filtroVolo.dataPartenza"name="filtroVolo.dataPartenza"/>
                     </div>
                 </div>
                 <div >
                     <div >
                         <span>Data Arrivo</span>
-                        <input  type="date" id="dataArrivo"[(ngModel)]="voloFiltro.dataArrivo" [ngModelOptions]="{standalone: true}" name="dataArrivo" required>
+                        <input  type="date" />
                     </div>
                 </div>
                 <div>
                     <div>
                         <span>Numero Persone</span>
-                        <input type="number" id="numPers"[(ngModel)]="voloFiltro.numPers" name="numPers" [ngModelOptions]="{standalone: true}" required>
+                        <input type="number"/>
                         <span ></span>
                     </div>
                 </div>
@@ -42,7 +40,7 @@
                 <div >
                     <div >
                         <span>Classe</span>
-                        <select [(ngModel)]=voloFiltro.classe [ngModelOptions]="{standalone: true}">
+                        <select>
                             <option>Economy</option>
                             <option>Business</option>
                             <option>First</option>
@@ -50,21 +48,20 @@
                         <span ></span>
                     </div>
                 </div>
-                <div >
-                    <div >
-                        <button   >Ricerca</button>
-                    </div>
-                </div>
             </div>
-        </form>    
+            <div>
+                <button mat-raised-button  (click)="volofiltro()">Search</button>
+            </div>
+        </form>
     </div>
-</form> -->
 
 <h2 type="text">Prenotazioni Disponibili</h2>
-<ul *ngFor="let volo of voli">
-    <li>{{volo.dataPartenza}}</li>
+<tr *ngFor="let volo of voli">
+    <li >{{volo.dataPartenza}}</li>
+    <li >{{volo.dataArrivo}}</li>
+    <li >{{volo.dataPartenza}}</li>
     <li>{{volo.aeroportoP}}</li>
-</ul>
+</tr>
 
 
     

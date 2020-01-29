@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class VoliService {
-  
+
   private _voliAPI = "http://localhost:8080/voli";
 
   constructor(private http: HttpClient) { }

@@ -1,7 +1,8 @@
 export interface IVolo {
     id: string;
-    dataPartenza: string;
-    aeroportoP: string;
-    aeroportoD: string;
-    numPostiDisponibili: number;
+    partenza: string;
+    arrivo: string;
+    dataPartenza: Date;
+    dataArrivo: Date;
+    numPers:number;
 }

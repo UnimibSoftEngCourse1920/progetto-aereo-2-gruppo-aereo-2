@@ -7,6 +7,7 @@ export class ServiceService {
 
   private _registrationAPI = "http://localhost:8080/register";
   private _loginAPI = "http://localhost:8080/authenticate";
+  private user = {}
 
   constructor(private _router: Router,
     private http: HttpClient) { }
@@ -17,11 +18,13 @@ export class ServiceService {
   }
 
   login(user) {
+    this.user=user;
     console.log(user)
     return this.http.post<any>(this._loginAPI, user)
   }
 
   logoutUser() {
+    this.user=null
     localStorage.removeItem('jwt')
     this._router.navigate(['/login'])
   }

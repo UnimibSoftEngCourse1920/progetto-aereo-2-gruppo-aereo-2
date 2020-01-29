@@ -15,8 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { tokenJWTService } from './token-jwt.service';
-import { GuardiaGuard } from './guardia.guard'
- 
+import { GuardiaGuard } from './guardia.guard';
+import { DatePipe } from '@angular/common';
+
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { GuardiaGuard } from './guardia.guard'
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [ServiceService, VoliService, GuardiaGuard, {
+  providers: [ServiceService, VoliService, GuardiaGuard, DatePipe, {
     provide: HTTP_INTERCEPTORS,
     useClass: tokenJWTService,
     multi: true
