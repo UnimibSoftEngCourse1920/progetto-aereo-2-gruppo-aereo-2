@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import edu.progetto.cliente.Cliente;
-import edu.progetto.cliente.ClienteRepository;
-import edu.progetto.volo.Volo;
-import edu.progetto.volo.VoloRepository;
+import edu.progetto.entity.Cliente;
+import edu.progetto.entity.Volo;
+import edu.progetto.repository.ClienteRepository;
+import edu.progetto.repository.VoloRepository;
 
 @Component
 @ConditionalOnProperty(name = "app.db-init", havingValue = "true")
@@ -40,8 +40,8 @@ public class DbInitializer implements CommandLineRunner {
 		Cliente cliente1 = new Cliente("Oleg","Stoianov","oleg.stoianov@babbo.it","oleghinho",bcryptoEncoder.encode("123456"));
 		Cliente cliente2 = new Cliente("Lorenzo","Nosotti","lollo.noso@babbo.it","lollonoso",bcryptoEncoder.encode("4321"));
 		
-		Volo volo1 = new Volo("AFG8D",data,"Milano","Roma", 100);
-		Volo volo2 = new Volo("B32FS",data,"Roma","Milano", 100);
+		Volo volo1 = new Volo(data,"Milano","Roma", 100);
+		Volo volo2 = new Volo(data,"Roma","Milano", 100);
 		
 		
 		this.clienteRepo.save(cliente1);
