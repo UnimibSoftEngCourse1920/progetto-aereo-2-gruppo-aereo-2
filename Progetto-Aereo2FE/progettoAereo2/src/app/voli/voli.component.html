@@ -1,0 +1,84 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <div><form>
+            <div>
+                <div>
+                    <div>
+                        <span>Partenza</span>
+                        <input type="text" [(ngModel)]="filtroVolo.partenza"name="filtroVolo.partenza"/>
+                    </div>
+                </div>
+                <div>
+                    <div >
+                        <span>Arrivo</span>
+                        <input type="text" [(ngModel)]="filtroVolo.arrivo" name="filtroVolo.arrivo"/>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <div >
+                    <div>
+                        <span>Data Partenza</span>
+                        <input  type="date" [(ngModel)]="filtroVolo.dataPartenza"name="filtroVolo.dataPartenza"/>
+                    </div>
+                </div>
+                <div >
+                    <div >
+                        <span>Data Arrivo</span>
+                        <input  type="date" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span>Numero Persone</span>
+                        <input type="number"/>
+                        <span ></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div >
+                    <div >
+                        <span>Classe</span>
+                        <select>
+                            <option>Economy</option>
+                            <option>Business</option>
+                            <option>First</option>
+                        </select>
+                        <span ></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button mat-raised-button  (click)="volofiltro()">Search</button>
+            </div>
+        </form>
+    </div>
+
+<h2 type="text">Prenotazioni Disponibili</h2>
+<tr *ngFor="let volo of voli; let i=index">
+    <td >
+        {{volo.dataPartenza}}
+    </td>
+    <td>
+        {{volo.dataArrivo}}
+    </td>
+    <td>
+        {{volo.aeroportoP}}
+    </td>
+    <td>
+        {{volo.aeroportoP}}
+    </td>
+    <td>
+        {{volo.id}}
+    </td>
+    <td>
+        <input type="number" [(ngModel)]="numeroPosti[i]"name="numeroPosti[i]"/>
+    </td>
+    <td>
+        <button class="btn btn-primary" (click)="prenota(i)">Prenota</button>
+    </td>
+</tr>
+
+
+    
