@@ -31,6 +31,10 @@ public class ClienteService {
 		return clienteRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException());
 	}
+	
+	public Cliente getClienteByUsername(String username) {
+		return clienteRepository.findByUsername(username);
+	}
 
 	public void addCliente(Cliente c) {
 		clienteRepository.save(c);

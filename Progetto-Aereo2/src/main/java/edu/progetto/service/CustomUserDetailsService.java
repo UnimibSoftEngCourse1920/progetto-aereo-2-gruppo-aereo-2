@@ -45,4 +45,23 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return clienteRepo.save(nuovoCliente);
 	}
 
+	public boolean isPresentUsername(String username) {
+	
+		Cliente cliente = clienteRepo.findByUsername(username);
+		if(cliente != null) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isPresentEmail(String email) {
+		Cliente cliente = clienteRepo.findByEmail(email);
+		if(cliente != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+
 }

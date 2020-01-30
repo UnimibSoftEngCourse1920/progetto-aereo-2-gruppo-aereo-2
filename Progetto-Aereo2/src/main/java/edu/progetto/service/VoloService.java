@@ -23,7 +23,6 @@ public class VoloService {
 		List<Volo> voli= new ArrayList<Volo>();
 		for (Volo v : voloRepository.findAll()){
 			voli.add(v);
-			System.out.println(v);
 		}
 		return voli;
 	}
