@@ -56,11 +56,28 @@
     </div>
 
 <h2 type="text">Prenotazioni Disponibili</h2>
-<tr *ngFor="let volo of voli">
-    <li >{{volo.dataPartenza}}</li>
-    <li >{{volo.dataArrivo}}</li>
-    <li >{{volo.dataPartenza}}</li>
-    <li>{{volo.aeroportoP}}</li>
+<tr *ngFor="let volo of voli; let i=index">
+    <td >
+        {{volo.dataPartenza}}
+    </td>
+    <td>
+        {{volo.dataArrivo}}
+    </td>
+    <td>
+        {{volo.aeroportoP}}
+    </td>
+    <td>
+        {{volo.aeroportoP}}
+    </td>
+    <td>
+        {{volo.id}}
+    </td>
+    <td>
+        <input type="number" [(ngModel)]="numeroPosti[i]"name="numeroPosti[i]"/>
+    </td>
+    <td>
+        <button class="btn btn-primary" (click)="prenota(i)">Prenota</button>
+    </td>
 </tr>
 
 

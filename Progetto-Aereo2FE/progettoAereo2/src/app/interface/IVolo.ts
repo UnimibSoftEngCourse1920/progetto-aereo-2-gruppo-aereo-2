@@ -1,5 +1,5 @@
 export interface IVolo {
-    id: string;
+    id: number;
     partenza: string;
     arrivo: string;
     dataPartenza: Date;

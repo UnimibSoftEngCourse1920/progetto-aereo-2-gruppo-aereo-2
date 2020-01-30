@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { IUser } from './interface/IUser';
 
 @Injectable()
 export class ServiceService {
 
   private _registrationAPI = "http://localhost:8080/register";
   private _loginAPI = "http://localhost:8080/authenticate";
-  private user = {}
+  public user :IUser
 
   constructor(private _router: Router,
     private http: HttpClient) { }
 
   registration(user) {
-    console.log(user)
     return this.http.post<any>(this._registrationAPI, user) //post call
   }
 
   login(user) {
     this.user=user;
-    console.log(user)
     return this.http.post<any>(this._loginAPI, user)
   }
 
@@ -30,7 +29,7 @@ export class ServiceService {
   }
 
   getToken() {
-;    return localStorage.getItem('jwt')
+   return localStorage.getItem('jwt')
   }
 
   loggedIn() {
