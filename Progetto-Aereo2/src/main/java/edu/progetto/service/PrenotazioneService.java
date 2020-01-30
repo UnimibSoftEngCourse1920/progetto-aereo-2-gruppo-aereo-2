@@ -22,8 +22,8 @@ public class PrenotazioneService {
 	private ClienteService clienteService;
 	
 	
-	public List<Prenotazione> getAllPrenotazioniByCliente(Integer clienteId){
-		Cliente cliente = clienteService.getCliente(clienteId);
+	public List<Prenotazione> getAllPrenotazioniByCliente(String username){
+		Cliente cliente = clienteService.getClienteByUsername(username);
 		return prenotazioneRepo.findByCliente(cliente);
 	}
 	
