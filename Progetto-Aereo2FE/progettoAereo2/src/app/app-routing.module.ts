@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'prenotazione',
+    canActivate: [GuardiaGuard],
     component: PrenotazioneComponent
   },
  /* {

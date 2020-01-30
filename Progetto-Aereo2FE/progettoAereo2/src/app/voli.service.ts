@@ -16,8 +16,10 @@ export class VoliService {
   getVoli(){
     return this.http.get<any>(this._voliAPI)
   }
-  prenotazione(username, id, numPosti){
-    let o = { "username" : username, "id" : id, "numBiglietti" : numPosti}
+  prenotazione(username, voloId, numBiglietti){
+    let o =JSON.stringify ({ "username":username, 
+                              "voloId" : voloId, 
+                              "numBiglietti" : numBiglietti})
     console.log(o)
     return this.http.post<any>(this._prenotaAPI, o)
   }

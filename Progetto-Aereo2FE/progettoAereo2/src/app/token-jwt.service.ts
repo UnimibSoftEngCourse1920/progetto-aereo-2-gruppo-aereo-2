@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http'
 import { ServiceService } from './service.service';
+
 @Injectable()
 export class tokenJWTService implements HttpInterceptor {
 
