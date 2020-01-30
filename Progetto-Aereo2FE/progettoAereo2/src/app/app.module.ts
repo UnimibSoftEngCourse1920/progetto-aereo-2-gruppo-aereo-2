@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { tokenJWTService } from './token-jwt.service';
 import { GuardiaGuard } from './guardia.guard';
 import { DatePipe } from '@angular/common';
+import { PrenotazioneComponent } from './prenotazione/prenotazione.component';
 
 
 
@@ -26,7 +27,8 @@ import { DatePipe } from '@angular/common';
     RegistrationComponent,
     VoliComponent,
     LoginComponent,
-    ModalComponent
+    ModalComponent,
+    PrenotazioneComponent
     ],
   imports: [
     BrowserModule,

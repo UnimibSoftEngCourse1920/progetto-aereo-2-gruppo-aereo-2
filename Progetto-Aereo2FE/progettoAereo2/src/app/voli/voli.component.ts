@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IVolo } from '../interface/IVolo'
 import { DatePipe } from '@angular/common';
+import { ServiceService } from '../service.service';
 
 
 @Component({
@@ -13,12 +14,14 @@ import { DatePipe } from '@angular/common';
 })
 export class VoliComponent implements OnInit {
   
+  numeroPosti = []
   voli = []
-  filtroVolo : IVolo =  {"id": "", "dataPartenza" : null, "dataArrivo" : null,"partenza": "", "arrivo":"", "numPers": null}
+  filtroVolo : IVolo =  {"id": 0, "dataPartenza" : null, "dataArrivo" : null,"partenza": "", "arrivo":"", "numPers": null}
 
   constructor(private _voloService: VoliService,
               private _router: Router,
-              private datePipe: DatePipe ) { }
+              private datePipe: DatePipe,
+              private service: ServiceService ) { }
 
               ngOnInit() {
                 this._voloService.getVoli()
@@ -34,33 +37,39 @@ export class VoliComponent implements OnInit {
                   ) 
               }
 
+              prenota(i){
+                return this._voloService.prenotazione(this.service.user.username, this.voli[i].id, this.numeroPosti[i])
+                .subscribe(
+                  res => {
+                    this._router.navigate(['/prenotazione'])
+                  },
+                  err => console.log(err)
+                ) 
+              }
+
               volofiltro(){
                 let voliFilter: IVolo[]=[];
-               console.log(!(this.filtroVolo.dataArrivo == null &&
-                this.filtroVolo.dataPartenza == null &&
-                this.filtroVolo.partenza=="" &&
-                this.filtroVolo.arrivo=="" ))
-
                 if(!((this.filtroVolo.dataArrivo == null || 
-                  this.datePipe.transform(this.filtroVolo.dataArrivo, 'dd-MM-yyyy')) &&
-                  (this.filtroVolo.dataPartenza == null || 
+                    this.datePipe.transform(this.filtroVolo.dataArrivo, 'dd-MM-yyyy')) &&
+                    (this.filtroVolo.dataPartenza == null || 
                     this.datePipe.transform(this.filtroVolo.dataPartenza, 'dd-MM-yyyy')) &&
-                this.filtroVolo.partenza=="" &&
-                this.filtroVolo.arrivo=="") ){
-                for (let i = 0; i < this.voli.length; i++){
-                if((this.voli[i].aeroportoP.startsWith(this.filtroVolo.partenza))
-                    && (this.voli[i].aeroportoD.startsWith(this.filtroVolo.arrivo))
-                    && (this.datePipe.transform(this.voli[i].dataPartenza, 'dd-MM-yyyy')==
-                    this.datePipe.transform(this.filtroVolo.dataPartenza, 'dd-MM-yyyy')||
-                    this.filtroVolo.dataPartenza==null)
-                    && (this.datePipe.transform(this.voli[i].dataArrivo, 'dd-MM-yyyy')==
-                    this.datePipe.transform(this.filtroVolo.dataArrivo, 'dd-MM-yyyy')||
-                    this.filtroVolo.dataArrivo==null)){
-                  voliFilter.push(this.voli[i]);
+                    this.filtroVolo.partenza=="" &&
+                    this.filtroVolo.arrivo=="") ){
+                    this.voli=[];
+                    for (let i = 0; i < this.voli.length; i++){
+                      if((this.voli[i].aeroportoP.startsWith(this.filtroVolo.partenza))
+                      && (this.voli[i].aeroportoD.startsWith(this.filtroVolo.arrivo))
+                      && ((this.datePipe.transform(this.voli[i].dataPartenza, 'dd-MM-yyyy')==
+                      this.datePipe.transform(this.filtroVolo.dataPartenza, 'dd-MM-yyyy')||
+                      this.filtroVolo.dataPartenza==null))
+                      && ((this.datePipe.transform(this.voli[i].dataArrivo, 'dd-MM-yyyy')==
+                      this.datePipe.transform(this.filtroVolo.dataArrivo, 'dd-MM-yyyy')||
+                      this.filtroVolo.dataArrivo==null))){
+                        voliFilter.push(this.voli[i]);
+                      }
+                    }
+                   this.voli=voliFilter;
                 }
-                }
-                this.voli=voliFilter;
-              }
               }
 
               

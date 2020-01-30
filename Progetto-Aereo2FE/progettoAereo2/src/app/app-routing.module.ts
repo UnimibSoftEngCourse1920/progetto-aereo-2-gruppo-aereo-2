@@ -5,6 +5,7 @@ import { VoliComponent } from './voli/voli.component'
 import { LoginComponent } from './login/login.component' 
 import { ModalComponent } from './modal/modal.component'
 import { GuardiaGuard } from './guardia.guard';
+import { PrenotazioneComponent } from './prenotazione/prenotazione.component'
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent
+  },
+  {
+    path: 'prenotazione',
+    component: PrenotazioneComponent
   },
  /* {
     path: 'voli',
