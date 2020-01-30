@@ -33,9 +33,9 @@ public class PrenotazioneController {
 	ClienteService clienteService;
 	
 	
-	@RequestMapping("/prenotazioni/{clienteId}")
-	public List<Prenotazione> getAllPrenotazioni(@PathVariable Integer clienteId){
-		return prenotazioneService.getAllPrenotazioniByCliente(clienteId);
+	@RequestMapping("/prenotazioni/{username}")
+	public List<Prenotazione> getAllPrenotazioni(@PathVariable String username){
+		return prenotazioneService.getAllPrenotazioniByCliente(username);
 	}
 	
 	@RequestMapping("/prenotazioni/mia/{prenotazioneId}")
@@ -47,7 +47,7 @@ public class PrenotazioneController {
 	@RequestMapping(method=RequestMethod.POST, value="/prenotazioni")
 	public ResponseEntity<PrenotazioneResponse> addPrenotazione(@RequestBody PrenotazioneRequest prenotazioneReq) {
 		Prenotazione p = new Prenotazione(voloService.getVolo(prenotazioneReq.getVoloId()),
-				clienteService.getCliente(prenotazioneReq.getClienteId()));	
+				clienteService.getClienteByUsername(prenotazioneReq.getUsername()));	
 			prenotazioneService.addPrenotazione(p);			
 			return ResponseEntity.ok(new PrenotazioneResponse(p.getId()));
 	}

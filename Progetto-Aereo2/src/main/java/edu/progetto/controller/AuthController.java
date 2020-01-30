@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.progetto.entity.Cliente;
+import edu.progetto.exception.EmailAlreadyRegistered;
+import edu.progetto.exception.UserAlreadyRegistered;
 import edu.progetto.request.AuthenticationRequest;
 import edu.progetto.response.AuthenticationResponse;
 import edu.progetto.security.JwtUtil;
@@ -55,6 +57,14 @@ public class AuthController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody Cliente cliente) throws Exception {
+		if (userDetailsService.isPresentUsername(cliente.getUsername())){
+			 throw new UserAlreadyRegistered("Username exists: "+cliente.getUsername());
+		}
+		if (userDetailsService.isPresentEmail(cliente.getEmail())){
+			 throw new EmailAlreadyRegistered("Email already registered: "+cliente.getEmail());
+		}
+		
+		
 		return ResponseEntity.ok(userDetailsService.save(cliente));
 	}
 }
